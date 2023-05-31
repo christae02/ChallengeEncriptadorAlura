@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Encriptador</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1 class="titulo">Challenge Encriptador ALURA</h1>
+        <textarea id="texto" class="cuadro-texto" cols="150" rows="8" placeholder="Escribir mensaje..." value="hola"></textarea>
+        <div class="botones">
+            <button name="encriptar" onclick="encriptar()">Encriptar</button>
+            <button onclick="desencriptar()">Desencriptar</button>
+        </div>
+        <h1 class="mensaje">Mensaje Cifrado/Descifrado</h1>
+        <textarea id="respuesta" class="cuadro-texto" cols="150" rows="10"></textarea>
+        <div class="botones">
+            <button onclick="copiarTexto()" >Copiar</button>
+        </div>
+    </div>
+    
+    <script>
+        function encriptar()
+        {
+            var mensaje = document.getElementById("texto").value;
+            var arreglo = mensaje.split('');
+            var respuesta = "";
+            for(var i = 0;i < arreglo.length;i++)
+            {
+                if(arreglo[i] == "a")
+                {
+                    arreglo[i] = "ai";
+                }
+                if(arreglo[i] == "e")
+                {
+                    arreglo[i] = "enter";
+                }
+                if(arreglo[i] == "i")
+                {
+                    arreglo[i] = "imes";
+                }
+                if(arreglo[i] == "o")
+                {
+                    arreglo[i] = "ober";
+                }
+                if(arreglo[i] == "u")
+                {
+                    arreglo[i] = "ufat";
+                }
+                respuesta = respuesta + arreglo[i];
+            }
+            document.getElementById("respuesta").value = respuesta;
+        }
+
+        function desencriptar()
+        {
+            var mensaje = document.getElementById("texto").value;
+            var arreglo = mensaje.split('');
+            var respuesta = "";
+            for(var i = 0;i < arreglo.length;i++)
+            {
+                if(arreglo[i] == "a")
+                {   
+                    if(arreglo[i+1] == "i")
+                    {
+                        respuesta = respuesta + "a";
+                        i = i+1;
+                    }
+                }
+                else if(arreglo[i] == "e")
+                {   
+                    if(arreglo[i+1] == "n")
+                    {
+                        if(arreglo[i+2] == "t")
+                        {
+                            if(arreglo[i+3] == "e")
+                            {
+                                if(arreglo[i+4] == "r") 
+                                {
+                                    respuesta = respuesta + "e"
+                                    i = i+4;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if(arreglo[i] == "i")
+                {   
+                    if(arreglo[i+1] == "m")
+                    {
+                        if(arreglo[i+2] == "e")
+                        {
+                            if(arreglo[i+3] == "s")
+                            {    
+                               respuesta = respuesta + "i"
+                               i = i+3;
+                            }
+                        }
+                    }
+                }
+                else if(arreglo[i] == "o")
+                {   
+                    if(arreglo[i+1] == "b")
+                    {
+                        if(arreglo[i+2] == "e")
+                        {
+                            if(arreglo[i+3] == "r")
+                            {    
+                               respuesta = respuesta + "o"
+                               i = i+3;
+                            }
+                        }
+                    }
+                }
+                else if(arreglo[i] == "u")
+                {   
+                    if(arreglo[i+1] == "f")
+                    {
+                        if(arreglo[i+2] == "a")
+                        {
+                            if(arreglo[i+3] == "t")
+                            {    
+                               respuesta = respuesta + "u"
+                               i = i+3;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    respuesta = respuesta + arreglo[i];
+                }
+            }
+            document.getElementById("respuesta").value = respuesta;
+        }
+
+        function copiarTexto()
+        {
+            var texto = document.getElementById("respuesta").value;
+            document.getElementById("texto").value = texto;
+            alert("Texto copiado correctamente");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+body{
+    background: linear-gradient(to left, red,rgb(148, 23, 23)) ;;
+    font-size: 30px;
+}
+
+.titulo{
+    background: linear-gradient(to right, blue,rgb(182, 182, 218)) ;
+    color: white;
+    text-align: center;
+}
+
+.cuadro-texto{
+    border: 3px solid black;
+    font-size: 15px;
+    margin: 20px 0 0 15px;
+}
+
+.mensaje{
+    margin-top: 20px;
+    background: linear-gradient(to right, green,rgb(7, 243, 58));
+    text-align: center;
+    color: white;
+}
+
+.botones{
+    width: 97%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+button{
+    background: skyblue;
+    padding: 10px 15px;
+    margin-left: 15px;
+}
